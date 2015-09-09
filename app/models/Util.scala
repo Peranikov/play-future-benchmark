@@ -3,15 +3,16 @@ package models
 trait Util {
   var threadCount = 0
 
-  def calc[A](a: A) = {
-    val now = new java.util.Date();
-    updateThreadCount
-    a
+  def log[Int](a: Int): Int = {
+    log(a, 0)
   }
 
-  def sleep(t: Long) = {
+  def log[Int](a: Int, t: Long): Int = {
     updateThreadCount
-    Thread.sleep(t)
+    if (t > 0) {
+      Thread.sleep(t)
+    }
+    a
   }
 
   def updateThreadCount = {

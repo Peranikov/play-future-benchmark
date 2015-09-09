@@ -4,10 +4,11 @@
 
 # Home page
 GET     /                           controllers.Application.index
-GET     /scala/future               controllers.Scala.future
-GET     /scalaz/future              controllers.Scalaz.future
-GET     /akka/future                controllers.AkkaEc.future
-GET     /default/future             controllers.DefaultContext.future
+GET     /akka/future                   controllers.AkkaMap.future
+#GET     /scala/future               controllers.Scala.future
+#GET     /scalaz/future              controllers.Scalaz.future
+#GET     /akka/future                controllers.AkkaEc.future
+#GET     /default/future             controllers.DefaultContext.future
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
