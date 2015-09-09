@@ -6,7 +6,7 @@
 GET     /                           controllers.Application.index
 GET     /akka/future                   controllers.AkkaMap.future
 #GET     /scala/future               controllers.Scala.future
-#GET     /scalaz/future              controllers.Scalaz.future
+GET     /scalaz/future              controllers.ScalazMap.future
 #GET     /akka/future                controllers.AkkaEc.future
 #GET     /default/future             controllers.DefaultContext.future
 
