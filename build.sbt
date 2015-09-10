@@ -15,7 +15,8 @@ libraryDependencies ++= Seq(
   specs2 % Test,
   "org.scalaz" %% "scalaz-core" % "7.1.3",
   "org.scalaz" %% "scalaz-concurrent" % "7.1.3",
-  "com.typesafe.akka" %% "akka-actor" % akkaVersion
+  "com.typesafe.akka" %% "akka-actor" % akkaVersion,
+  "com.typesafe.akka" %% "akka-slf4j" % akkaVersion
 )
 
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
