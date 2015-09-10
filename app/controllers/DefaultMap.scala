@@ -1,14 +1,14 @@
 package controllers
 
 import play.api.mvc.{Action, Controller}
-import scalaz.concurrent.Task
-import models.ScalaFutureConverters._
+import play.api.libs.concurrent.Execution.Implicits.defaultContext
+import scala.concurrent.Future
 
-class ScalazMap extends Controller with models.Util {
+class DefaultMap extends Controller with models.Util {
   def future = Action.async {
-    println("Scalaz Benchmark")
+    println("Default Benchmark")
 
-    val t = Task(1)
+    Future(1)
       .map(log(_, 1000))
       .map(log(_))
       .map(log(_))
@@ -22,9 +22,7 @@ class ScalazMap extends Controller with models.Util {
       .map { i =>
         log(i)
         println(s"threads: $getThreadCount")
-        Ok(s"Got result: $i threads: $getThreadCount")
+        Ok("OK")
       }
-
-    scalazTask2scalaFuture(t)
   }
 }
