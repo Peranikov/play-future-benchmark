@@ -8,3 +8,5 @@ scalacOptions := Seq(
 
 libraryDependencies += "io.gatling.highcharts" % "gatling-charts-highcharts" % "2.1.6" % "test"
 libraryDependencies += "io.gatling"            % "gatling-test-framework"    % "2.1.6" % "test"
+
+javaOptions in test += "-Xmx2G"
