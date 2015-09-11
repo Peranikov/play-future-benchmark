@@ -3,16 +3,17 @@ package controllers
 import java.util.concurrent.Executors
 
 import play.api.mvc.{Action, Controller}
-import scalaz.concurrent.Task
+import scalaz.concurrent.{Strategy, Task}
 import scalaz.concurrent.Strategy._
 import models.ScalaFutureConverters._
 
 class ScalazMap extends Controller with models.Util {
+  implicit val pool = Executors.newFixedThreadPool(100, DefaultDaemonThreadFactory)
+
   def future = Action.async {
     println("Scalaz Benchmark")
 
-    val pool = Executors.newFixedThreadPool(1, DefaultDaemonThreadFactory)
-    val t = Task(1)(pool)
+    val t = Task(1)
       .map(log(_, 1000))
       .map(log(_))
       .map(log(_))
