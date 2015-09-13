@@ -1,0 +1,3 @@
+#!/bin/bash
+
+./play-future-1.0-SNAPSHOT/bin/play-future 
